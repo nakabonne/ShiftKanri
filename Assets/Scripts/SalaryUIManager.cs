@@ -6,18 +6,21 @@ using UnityEngine.UI;
 public class SalaryUIManager : MonoBehaviour {
 
 	public Text thisYearSalary;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+
+
 	void Update () {
 		ThisYearSalary ();
 	}
 
+	//今年の給料を表示する
 	void ThisYearSalary()
 	{
 		thisYearSalary.text = SalaryManager.Instance.this_year_salary.ToString () + "円";
+	}
+
+	//バイト先設定画面へ移動
+	public void WorkConfig()
+	{
+		MySceneManager.Instance.GoWorkConfig ();
 	}
 }

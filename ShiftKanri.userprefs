@@ -1,13 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SalaryUIManager.cs">
     <Files>
-      <File FileName="Assets/FlatCalendar/Scripts/FlatCalendarStyle.cs" Line="154" Column="1" />
-      <File FileName="Assets/FlatCalendar/Scripts/FlatCalendar.cs" Line="394" Column="18" />
-      <File FileName="Assets/Scripts/MySceneManager.cs" Line="15" Column="39" />
-      <File FileName="Assets/Scripts/ManagerRoot.cs" Line="8" Column="37" />
-      <File FileName="Assets/Scripts/SalaryManager.cs" Line="11" Column="3" />
-      <File FileName="Assets/Scripts/SalaryUIManager.cs" Line="21" Column="81" />
+      <File FileName="Assets/Scripts/SalaryUIManager.cs" Line="24" Column="3" />
+      <File FileName="Assets/Scripts/SalaryManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
