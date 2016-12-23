@@ -1,14 +1,24 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{F209A1C6-96D6-850F-D3ED-A6FE8484FDE3}") = "ShiftKanri", "Assembly-CSharp.csproj", "{221DEEBB-6BEF-1DF6-C87B-69079F802761}"
+EndProject
+Project("{F209A1C6-96D6-850F-D3ED-A6FE8484FDE3}") = "ShiftKanri", "Assembly-CSharp-Editor.csproj", "{DEEF43E3-95E0-F205-DA39-A0B9229FB347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{221DEEBB-6BEF-1DF6-C87B-69079F802761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221DEEBB-6BEF-1DF6-C87B-69079F802761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221DEEBB-6BEF-1DF6-C87B-69079F802761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221DEEBB-6BEF-1DF6-C87B-69079F802761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEEF43E3-95E0-F205-DA39-A0B9229FB347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEEF43E3-95E0-F205-DA39-A0B9229FB347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEEF43E3-95E0-F205-DA39-A0B9229FB347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEEF43E3-95E0-F205-DA39-A0B9229FB347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
