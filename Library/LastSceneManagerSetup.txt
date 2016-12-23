@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Calender.unity
+- path: Assets/Scene/Calendar.unity
   isLoaded: 1
   isActive: 1
