@@ -49,6 +49,9 @@
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendar.cs" />
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendarStyle.cs" />
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendar_Demo.cs" />
+     <Compile Include="Assets\Scripts\ManagerRoot.cs" />
+     <Compile Include="Assets\Scripts\MySceneManager.cs" />
+     <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
