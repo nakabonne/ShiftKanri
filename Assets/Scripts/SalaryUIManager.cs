@@ -23,4 +23,9 @@ public class SalaryUIManager : MonoBehaviour {
 	{
 		MySceneManager.Instance.GoWorkConfig ();
 	}
+	//カレンダーシーンへ遷移
+	public void GoCalendar()
+	{
+		MySceneManager.Instance.GoCalendar ();
+	}
 }

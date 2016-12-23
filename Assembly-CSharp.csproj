@@ -49,10 +49,12 @@
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendar.cs" />
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendarStyle.cs" />
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendar_Demo.cs" />
+     <Compile Include="Assets\Scripts\CalendarUIManager.cs" />
      <Compile Include="Assets\Scripts\ManagerRoot.cs" />
      <Compile Include="Assets\Scripts\MySceneManager.cs" />
      <Compile Include="Assets\Scripts\SalaryManager.cs" />
      <Compile Include="Assets\Scripts\SalaryUIManager.cs" />
+     <Compile Include="Assets\Scripts\ShiftConfigUIManager.cs" />
      <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
      <Compile Include="Assets\Scripts\WorkPlaceConfigUIManager.cs" />
      <Compile Include="Assets\Scripts\WorkPlaceManager.cs" />
