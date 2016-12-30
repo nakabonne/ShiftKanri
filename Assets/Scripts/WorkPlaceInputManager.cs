@@ -6,7 +6,7 @@ using UnityEngine;
 public class WorkPlaceInputManager : MonoBehaviour {
 
 	//入力中のバイト先名前
-	string inputtingName;
+	public string inputtingName;
 
 	//名前入力中に呼ばれる
 	public void WorkPlacename(string name)
