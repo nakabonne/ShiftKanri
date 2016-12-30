@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//バイト先情報を格納するクラス
 public class WorkPlaceManager : MonoBehaviour {
 
 	// Use this for initialization

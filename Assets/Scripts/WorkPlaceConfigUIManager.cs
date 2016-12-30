@@ -16,6 +16,6 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 
 	public void BackSalary()
 	{
-		MySceneManager.Instance.GoSalary ();
+		MySceneManager.Instance.GoConfig ();
 	}
 }

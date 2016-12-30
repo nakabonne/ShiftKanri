@@ -14,6 +14,11 @@ public class MySceneManager : SingletonMonoBehaviour<MySceneManager> {
 	{
 		SceneManager.LoadScene ("Calendar");
 	}
+	//設定シーン
+	public void GoConfig()
+	{
+		SceneManager.LoadScene ("Config");
+	}
 	//バイト先設定シーン
 	public void GoWorkConfig()
 	{
@@ -22,6 +27,7 @@ public class MySceneManager : SingletonMonoBehaviour<MySceneManager> {
 	//シフト設定シーン
 	public void GoShiftConfig()
 	{
-		SceneManager.LoadScene ("ShiftConfig");
+		SceneManager.LoadScene ("ShiftEdit");
 	}
+
 }
