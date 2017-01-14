@@ -9,17 +9,30 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 	public Text testName;
 	public GameObject inputManagerObj;
 	WorkPlaceInputManager inputmanager;
+
+
 	void Start()
 	{
-		//入力フォームを非表示に
-		inputForm.SetActive (false);
+		inputForm.SetActive (false); //入力フォームを非表示に
 
-		//テスト
-		inputmanager = inputManagerObj.GetComponent<WorkPlaceInputManager>();
+		inputmanager = inputManagerObj.GetComponent<WorkPlaceInputManager>();//テスト
+
+
+
+		DisplayWorkPlaceButton ();
+	}
+	//バイト先の設定変更するボタン生成
+	void DisplayWorkPlaceButton()
+	{
+		Debug.Log ("ボタン生成");
+		foreach (string a in WorkPlaceManager.Instance.workPlaceNames) 
+		{
+			Debug.Log (a);
+		}
 	}
 	void Update()
 	{
-		testName.text = inputmanager.inputtingName + "がバイト先として保存中";
+		testName.text = inputmanager.workPlaceName +  "がバイト先として保存中";
 	}
 
 	//戻る
