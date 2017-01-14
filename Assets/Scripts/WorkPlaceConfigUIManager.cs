@@ -60,6 +60,12 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 		inputForm.SetActive (false);
 	}
 
+	//更新フォームを非表示にする
+	public void NotUpdateFormDisplay()
+	{
+		updateForm.SetActive (false);
+	}
+
 	//================以下デバッグ用===================
 	//すべてのセーブデータを削除
 	public void PlayerPrefsDelete()
