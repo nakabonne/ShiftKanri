@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class WorkPlaceConfigUIManager : MonoBehaviour {
 
 	public GameObject inputForm;
+	public GameObject updateForm;
 	public Text testName;
 	public GameObject inputManagerObj;
 	WorkPlaceInputManager inputmanager;
-
 	public Transform buttonList; //バイト先のボタンを縦に並べる時に親となるオブジェクト
 	public GameObject workNameButton;
 	void Start()
 	{
 		inputForm.SetActive (false); //入力フォームを非表示に
-
+		updateForm.SetActive(false);//更新フォームを非表示に
 		inputmanager = inputManagerObj.GetComponent<WorkPlaceInputManager>();//テスト
 
 		WorkPlaceManager.Instance.ReadNames (); //保存されているバイト先の名前を読み込む
