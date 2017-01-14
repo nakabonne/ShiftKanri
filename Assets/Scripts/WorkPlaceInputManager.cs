@@ -6,6 +6,8 @@ using UnityEngine.UI;
 //入力された値を一時的に管理するクラス
 public class WorkPlaceInputManager : MonoBehaviour {
 
+	//WorkPlaceConfigUIManager uiMana;
+	//public GameObject uiManaObj;
 	//入力中のバイト先名前
 	public string workPlaceName;
 	//入力中の時給の文字列
@@ -20,7 +22,10 @@ public class WorkPlaceInputManager : MonoBehaviour {
 	public int[] information = new int[3];
 
 	public GameObject inputForm;
-
+	void Start()
+	{
+		//uiMana = uiManaObj.GetComponent<WorkPlaceConfigUIManager> ();
+	}
 	//保存済みの値をデフォルトでセットする（保存済みデータの編集のみ）
 	void Set(string name)
 	{
@@ -64,6 +69,7 @@ public class WorkPlaceInputManager : MonoBehaviour {
 		inputForm.SetActive(false);
 
 		WorkPlaceManager.Instance.SaveNames (workPlaceName); //バイト先名をリストに追加
+		MySceneManager.Instance.GoWorkConfig();//新たにボタン追加
 	}
 
 //	//値をリセット
@@ -77,9 +83,5 @@ public class WorkPlaceInputManager : MonoBehaviour {
 
 
 
-	void Update()
-	{
-		//Debug.Log (inputting);
-		//Debug.Log (workPlaceName);
-	}
+
 }

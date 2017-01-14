@@ -11,8 +11,6 @@ public class WorkPlaceManager : SingletonMonoBehaviour<WorkPlaceManager> {
 	void Start()
 	{
 		ReadNames ();
-		//テスト
-		Debug.Log(PlayerPrefsX.GetIntArray("cuebic")[0]);
 	}
 	//保存された名前を読み込み
 	void ReadNames()

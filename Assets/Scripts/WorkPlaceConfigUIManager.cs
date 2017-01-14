@@ -10,7 +10,8 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 	public GameObject inputManagerObj;
 	WorkPlaceInputManager inputmanager;
 
-
+	public Transform buttonList; //バイト先のボタンを縦に並べる時に親となるオブジェクト
+	public GameObject workNameButton;
 	void Start()
 	{
 		inputForm.SetActive (false); //入力フォームを非表示に
@@ -22,12 +23,15 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 		DisplayWorkPlaceButton ();
 	}
 	//バイト先の設定変更するボタン生成
-	void DisplayWorkPlaceButton()
+	public void DisplayWorkPlaceButton()
 	{
 		Debug.Log ("ボタン生成");
-		foreach (string a in WorkPlaceManager.Instance.workPlaceNames) 
+		for (int i = 0; i<WorkPlaceManager.Instance.workPlaceNames.Count; i++) 
 		{
-			Debug.Log (a);
+			//Debug.Log (WorkPlaceManager.Instance.workPlaceNames[i]);
+			GameObject listButton = Instantiate(workNameButton) as GameObject; //一つずつボタン生成
+			listButton.transform.SetParent (buttonList,false); //Listオブジェクトの子にする
+			listButton.transform.FindChild ("Text").GetComponent<Text> ().text = WorkPlaceManager.Instance.workPlaceNames [i]; //表示テキストをそれぞれの名前にする
 		}
 	}
 	void Update()
