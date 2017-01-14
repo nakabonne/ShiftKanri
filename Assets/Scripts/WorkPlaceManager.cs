@@ -13,10 +13,11 @@ public class WorkPlaceManager : SingletonMonoBehaviour<WorkPlaceManager> {
 		ReadNames ();
 	}
 	//保存された名前を読み込み
-	void ReadNames()
+	public void ReadNames()
 	{
 		workPlaceNames = PlayerPrefsUtility.LoadList<string> ("name");
 	}
+	//======ここではバイト先の名前のみをListで保存している
 	//バイト先名を保存
 	public void SaveNames(string name)
 	{

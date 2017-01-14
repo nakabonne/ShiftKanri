@@ -18,7 +18,7 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 
 		inputmanager = inputManagerObj.GetComponent<WorkPlaceInputManager>();//テスト
 
-
+		WorkPlaceManager.Instance.ReadNames (); //保存されているバイト先の名前を読み込む
 
 		DisplayWorkPlaceButton ();
 	}
@@ -55,5 +55,13 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 	public void NotFormDisplay()
 	{
 		inputForm.SetActive (false);
+	}
+
+	//================以下デバッグ用===================
+	//すべてのセーブデータを削除
+	public void PlayerPrefsDelete()
+	{
+		PlayerPrefs.DeleteAll ();
+		MySceneManager.Instance.GoWorkConfig ();
 	}
 }

@@ -58,6 +58,8 @@ public class WorkPlaceInputManager : MonoBehaviour {
 
 
 
+	//==========ここではバイト先の詳細情報をバイト先の名前である、変数workPlaceNameをキーとして、「時給」「給料日」「締め日」を配列で保存している
+
 	//値をセットにして保存（新規登録時のみ）
 	public void Save()
 	{
@@ -71,15 +73,6 @@ public class WorkPlaceInputManager : MonoBehaviour {
 		WorkPlaceManager.Instance.SaveNames (workPlaceName); //バイト先名をリストに追加
 		MySceneManager.Instance.GoWorkConfig();//新たにボタン追加
 	}
-
-//	//値をリセット
-//	public void Reset()
-//	{
-//		workPlaceName = null;
-//		salaryString = null;
-//		salary = 0;
-//	}
-
 
 
 
