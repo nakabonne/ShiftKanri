@@ -6,11 +6,13 @@ using UnityEngine.UI;
 //入力された値を一時的に管理するクラス
 public class WorkPlaceInputManager : MonoBehaviour {
 
-	//WorkPlaceConfigUIManager uiMana;
-	//public GameObject uiManaObj;
+	//バイト先名を入力するinputfield
+	public InputField nameField;
+	//時給を入力するinputfield
+	public InputField salaryField;
 	//入力中のバイト先名前
 	public string workPlaceName;
-	//入力中の時給の文字列
+	//入力中の給料の文字列
 	public string salaryString;
 	//時給
 	public int salary;
@@ -27,9 +29,13 @@ public class WorkPlaceInputManager : MonoBehaviour {
 		//uiMana = uiManaObj.GetComponent<WorkPlaceConfigUIManager> ();
 	}
 	//保存済みの値をデフォルトでセットする（保存済みデータの編集のみ）
-	void Set(string name)
+	public void Set(string name)
 	{
-		information = PlayerPrefsX.GetIntArray (name,0,3);//キーが存在しない場合3つの要素を持つ配列を作成し、各要素を0で初期化する
+		Debug.Log ("セット開始");
+		information = PlayerPrefsX.GetIntArray (name);
+		nameField.text = name; //バイト先名のデフォルト値をセット
+		salaryField.text = information[0].ToString(); //給料のデフォルト値をセット 
+		inputForm.SetActive(true);
 	}
 
 	//入力中の名前を代入
@@ -71,7 +77,7 @@ public class WorkPlaceInputManager : MonoBehaviour {
 		inputForm.SetActive(false);
 
 		WorkPlaceManager.Instance.SaveNames (workPlaceName); //バイト先名をリストに追加
-		MySceneManager.Instance.GoWorkConfig();//新たにボタン追加
+		MySceneManager.Instance.GoWorkConfig();//新たにボタンを追加するためにシーンを更新する
 	}
 
 

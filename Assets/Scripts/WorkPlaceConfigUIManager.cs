@@ -32,6 +32,9 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 			GameObject listButton = Instantiate(workNameButton) as GameObject; //一つずつボタン生成
 			listButton.transform.SetParent (buttonList,false); //Listオブジェクトの子にする
 			listButton.transform.FindChild ("Text").GetComponent<Text> ().text = WorkPlaceManager.Instance.workPlaceNames [i]; //表示テキストをそれぞれの名前にする
+			int n = i;//スコープの関係で一回代入
+			listButton.GetComponent<Button> ().onClick.AddListener (() => inputmanager.Set (WorkPlaceManager.Instance.workPlaceNames [n]));//ボタンに機能を与える
+		
 		}
 	}
 	void Update()
