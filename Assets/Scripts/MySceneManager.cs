@@ -29,5 +29,10 @@ public class MySceneManager : SingletonMonoBehaviour<MySceneManager> {
 	{
 		SceneManager.LoadScene ("ShiftEdit");
 	}
+	//プルラビの説明シーン
+	public void GoPururabi()
+	{
+		SceneManager.LoadScene ("Pururabi");
+	}
 
 }
