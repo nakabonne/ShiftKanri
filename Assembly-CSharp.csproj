@@ -49,21 +49,21 @@
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendar.cs" />
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendarStyle.cs" />
      <Compile Include="Assets\FlatCalendar\Scripts\FlatCalendar_Demo.cs" />
-     <Compile Include="Assets\Scripts\CalendarUIManager.cs" />
-     <Compile Include="Assets\Scripts\ConfigManager.cs" />
-     <Compile Include="Assets\Scripts\HomeManager.cs" />
-     <Compile Include="Assets\Scripts\ManagerRoot.cs" />
-     <Compile Include="Assets\Scripts\MySceneManager.cs" />
-     <Compile Include="Assets\Scripts\PlayerPrefsUtility.cs" />
-     <Compile Include="Assets\Scripts\PlayerPrefsX.cs" />
-     <Compile Include="Assets\Scripts\SalaryManager.cs" />
-     <Compile Include="Assets\Scripts\SalaryUIManager.cs" />
-     <Compile Include="Assets\Scripts\ShiftConfigUIManager.cs" />
-     <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />
-     <Compile Include="Assets\Scripts\UnderButtons.cs" />
-     <Compile Include="Assets\Scripts\WorkPlaceConfigUIManager.cs" />
-     <Compile Include="Assets\Scripts\WorkPlaceInputManager.cs" />
-     <Compile Include="Assets\Scripts\WorkPlaceManager.cs" />
+     <Compile Include="Assets\Scripts\Calendar\CalendarUIManager.cs" />
+     <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
+     <Compile Include="Assets\Scripts\Home\HomeManager.cs" />
+     <Compile Include="Assets\Scripts\Library\PlayerPrefsUtility.cs" />
+     <Compile Include="Assets\Scripts\Library\PlayerPrefsX.cs" />
+     <Compile Include="Assets\Scripts\Salary\SalaryUIManager.cs" />
+     <Compile Include="Assets\Scripts\ShiftEdit\ShiftConfigUIManager.cs" />
+     <Compile Include="Assets\Scripts\Singleton\ManagerRoot.cs" />
+     <Compile Include="Assets\Scripts\Singleton\MySceneManager.cs" />
+     <Compile Include="Assets\Scripts\Singleton\SalaryManager.cs" />
+     <Compile Include="Assets\Scripts\Singleton\SingletonMonoBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Singleton\UnderButtons.cs" />
+     <Compile Include="Assets\Scripts\Singleton\WorkPlaceManager.cs" />
+     <Compile Include="Assets\Scripts\WorkPlaceConfig\WorkPlaceConfigUIManager.cs" />
+     <Compile Include="Assets\Scripts\WorkPlaceConfig\WorkPlaceInputManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

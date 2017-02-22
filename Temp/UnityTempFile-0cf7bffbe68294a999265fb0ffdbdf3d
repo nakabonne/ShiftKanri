@@ -95,7 +95,7 @@
 'Assets/FlatCalendar/Scripts/FlatCalendar_Demo.cs'
 'Assets/Scripts/CalendarUIManager.cs'
 'Assets/Scripts/ConfigManager.cs'
-'Assets/Scripts/HomeManager.cs'
+'Assets/Scripts/Home/HomeManager.cs'
 'Assets/Scripts/ManagerRoot.cs'
 'Assets/Scripts/MySceneManager.cs'
 'Assets/Scripts/PlayerPrefsUtility.cs'
