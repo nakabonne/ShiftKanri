@@ -25,15 +25,15 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 	//バイト先の設定変更するボタン生成
 	public void DisplayWorkPlaceButton()
 	{
-		Debug.Log ("ボタン生成");
-		for (int i = 0; i<WorkPlaceManager.Instance.workPlaceNames.Count; i++) 
+		Debug.Log ("ボタン生成開始");
+		var workplaces = PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces"); //登録された全バイト先の取得
+		foreach (WorkPlace workPlace in workplaces) 
 		{
 			//Debug.Log (WorkPlaceManager.Instance.workPlaceNames[i]);
 			GameObject listButton = Instantiate(workNameButton) as GameObject; //一つずつボタン生成
 			listButton.transform.SetParent (buttonList,false); //Listオブジェクトの子にする
-			listButton.transform.FindChild ("Text").GetComponent<Text> ().text = WorkPlaceManager.Instance.workPlaceNames [i]; //表示テキストをそれぞれの名前にする
-			int n = i;//スコープの関係で一回代入
-			listButton.GetComponent<Button> ().onClick.AddListener (() => inputmanager.Set (WorkPlaceManager.Instance.workPlaceNames [n]));//ボタンに機能を与える
+			listButton.transform.FindChild ("Text").GetComponent<Text> ().text = workPlace.name; //表示テキストをそれぞれの名前にする
+			listButton.GetComponent<Button> ().onClick.AddListener (() => inputmanager.Set (workPlace.name));//ボタンに機能を与える
 		
 		}
 	}

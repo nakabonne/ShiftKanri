@@ -35,41 +35,42 @@ public class WorkPlaceInputManager : MonoBehaviour {
 	//給料体系
 	public int paySystem = 0;
 	//時給、給料日、締め日の配列
-	public int[] information = new int[4];
+	//public int[] information = new int[4];
 
-	List<WorkPlace> workPlaces;
-
+	List<WorkPlace> workPlaces; //全バイト先
 
 	void Start()
 	{
-		var workPlace = new WorkPlace()
-		{
-			name = "cue",
-			salary = 1000,
-			payDay = 20,
-			cutOffDay = 10,
-			paySystem = 0
-		};
-		workPlaces = new List<WorkPlace>(){workPlace};
-		Debug.Log (workPlaces[0]);
+		if (PlayerPrefs.HasKey ("workPlaces")) {
+			workPlaces = PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces");
+		} else {
+			workPlaces = new List<WorkPlace>{};
+		}
 	}
 	//保存済みの値をデフォルトでセットする（保存済みデータの編集時のみ）
 	public void Set(string name)
 	{
 		Debug.Log ("セット開始");
-		information = PlayerPrefsX.GetIntArray (name);
-		constNameLabel.text = name + "の給料設定";//バイト先の名前を表示
-		workPlaceName = name;
-		salaryFieldUpdate.text = information[0].ToString(); //給料のデフォルト値をセット 
-		payDay = information[1]; //給料日のデフォルト値をセット
+		//選択したバイト先オブジェクトを取得
+		var workPlace = 
+			from x in workPlaces
+			where x.name == name
+			select x;
+		foreach (WorkPlace w in workPlace) {
+			constNameLabel.text = w.name + "の給料設定";//バイト先の名前を表示
+			workPlaceName = w.name;
+			salaryFieldUpdate.text = w.salary.ToString(); //給料のデフォルト値をセット 
+			payDay = w.payDay; //給料日のデフォルト値をセット
+			cutOffDate = w.cutOffDay; //締め日のデフォルト値をセット
+			paySystem = w.paySystem; //給与体系のデフォルト値をセット
+		}
 		payDayLabel.text = payDay.ToString()+"日";
-		cutOffDate = information[2]; //締め日のデフォルト値をセット
 		cutOffLabel.text = cutOffDate.ToString()+"日";
-		paySystem = information [3]; //給与体系のデフォルト値をセット
-		if (information [3] == 0) {
+
+		if (paySystem == 0) {
 			paySystemLabel.text = "時給";
 		} 
-		if(information [3] == 1){
+		if(paySystem == 1){
 			paySystemLabel.text = "日給";
 		}
 		updateForm.SetActive(true);
@@ -110,12 +111,10 @@ public class WorkPlaceInputManager : MonoBehaviour {
 	//値をセットにして保存（新規登録時のみ）
 	public void Save()
 	{
-		Debug.Log("バイト先保存");
-	
+
 		salary = int.Parse (salaryString); //string型の給料をint型に
 		//---------バイト先オブジェクトの作成--------
 
-		Debug.Log ("インスタンス作成");
 		/*
 		if (PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces") != null)
 		{
@@ -124,37 +123,42 @@ public class WorkPlaceInputManager : MonoBehaviour {
 		}*/
 
 
-		Debug.Log("読み込み");
-		Debug.Log (workPlaces);
+		//バイト先の追加
 		workPlaces.Add (new WorkPlace {
 			name = workPlaceName,
 			salary = salary,
 			payDay = payDay,
 			cutOffDay = cutOffDate,
 			paySystem = paySystem
-		});//バイト先の追加
-		Debug.Log(workPlaces[1].name);
+		});
 		PlayerPrefsUtility.SaveList<WorkPlace> ("workPlaces", workPlaces); //新たにバイト先情報を上書きする
-		Debug.Log("セーブ");
-		Debug.Log("保存されたバイト先は" + workPlaces);
 
 
-
-
-		information = new int []{salary,payDay,cutOffDate,paySystem}; //給料、給料日、締め日、給与体系を配列に
-		PlayerPrefsX.SetIntArray (workPlaceName, information); //バイト先名をキーにして各情報を保存
-		inputForm.SetActive(false);
-		WorkPlaceManager.Instance.SaveNames (workPlaceName); //バイト先名をリストに追加
-		MySceneManager.Instance.GoWorkConfig();//新たにボタンを追加するためにシーンを更新する
+		UpdateScene (inputForm);
 	}
 	//既存のデータを更新
 	public void UpdateSave()
 	{
 		salary = int.Parse (salaryString); //string型の給料をint型に
-		information = new int []{salary,payDay,cutOffDate,paySystem}; //給料、給料日、締め日を配列に
-		PlayerPrefsX.SetIntArray (workPlaceName, information); //バイト先名をキーにして各情報を保存
-		updateForm.SetActive(false);
-		MySceneManager.Instance.GoWorkConfig();//新たにボタンを追加するためにシーンを更新する
+		//強引だが要素を更新している--------
+		foreach (WorkPlace w in workPlaces) {
+			if (w.name == workPlaceName) {
+				w.salary = salary;
+				w.payDay = payDay;
+				w.cutOffDay = cutOffDate;
+				w.paySystem = paySystem;
+			}
+		}
+		//---------------------------
+		PlayerPrefsUtility.SaveList<WorkPlace> ("workPlaces", workPlaces); //新たにバイト先情報を上書きする
+		UpdateScene(updateForm);
+	}
+
+	//シーンを更新する
+	void UpdateScene(GameObject form)
+	{
+		form.SetActive (false);
+		MySceneManager.Instance.GoWorkConfig();
 	}
 
 
