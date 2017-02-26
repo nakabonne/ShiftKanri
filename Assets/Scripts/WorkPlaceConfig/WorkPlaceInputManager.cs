@@ -111,17 +111,7 @@ public class WorkPlaceInputManager : MonoBehaviour {
 	//値をセットにして保存（新規登録時のみ）
 	public void Save()
 	{
-
 		salary = int.Parse (salaryString); //string型の給料をint型に
-		//---------バイト先オブジェクトの作成--------
-
-		/*
-		if (PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces") != null)
-		{
-			workPlaces = PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces"); //バイト先リストの読み込み
-			Debug.Log("aaaaaaaaaaa");
-		}*/
-
 
 		//バイト先の追加
 		workPlaces.Add (new WorkPlace {
@@ -132,7 +122,6 @@ public class WorkPlaceInputManager : MonoBehaviour {
 			paySystem = paySystem
 		});
 		PlayerPrefsUtility.SaveList<WorkPlace> ("workPlaces", workPlaces); //新たにバイト先情報を上書きする
-
 
 		UpdateScene (inputForm);
 	}

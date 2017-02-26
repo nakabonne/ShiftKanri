@@ -18,7 +18,6 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 		updateForm.SetActive(false);//更新フォームを非表示に
 		inputmanager = inputManagerObj.GetComponent<WorkPlaceInputManager>();//テスト
 
-		WorkPlaceManager.Instance.ReadNames (); //保存されているバイト先の名前を読み込む
 
 		DisplayWorkPlaceButton ();
 	}
@@ -29,7 +28,6 @@ public class WorkPlaceConfigUIManager : MonoBehaviour {
 		var workplaces = PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces"); //登録された全バイト先の取得
 		foreach (WorkPlace workPlace in workplaces) 
 		{
-			//Debug.Log (WorkPlaceManager.Instance.workPlaceNames[i]);
 			GameObject listButton = Instantiate(workNameButton) as GameObject; //一つずつボタン生成
 			listButton.transform.SetParent (buttonList,false); //Listオブジェクトの子にする
 			listButton.transform.FindChild ("Text").GetComponent<Text> ().text = workPlace.name; //表示テキストをそれぞれの名前にする

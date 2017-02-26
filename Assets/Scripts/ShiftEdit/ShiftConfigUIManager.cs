@@ -23,9 +23,9 @@ public class ShiftConfigUIManager : MonoBehaviour {
 	//バイト先の選択肢を動的に生成
 	public void MakeWorkChoices()
 	{
-		for (int i = 0; i<PlayerPrefsUtility.LoadList<string> ("name").Count; i++) 
+		foreach (WorkPlace workPlace in PlayerPrefsUtility.LoadList<WorkPlace>("workPlaces"))
 		{
-			workChoce.options.Add (new Dropdown.OptionData{text = PlayerPrefsUtility.LoadList<string> ("name")[i]}); //一つずつボタン生成
+			workChoce.options.Add (new Dropdown.OptionData{text = workPlace.name}); //一つずつボタン生成
 			workChoce.RefreshShownValue();
 		}
 	}
