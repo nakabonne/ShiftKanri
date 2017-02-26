@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Library\PlayerPrefsUtility.cs" />
      <Compile Include="Assets\Scripts\Library\PlayerPrefsX.cs" />
      <Compile Include="Assets\Scripts\Salary\SalaryUIManager.cs" />
+     <Compile Include="Assets\Scripts\SaveObject\WorkPlace.cs" />
      <Compile Include="Assets\Scripts\ShiftEdit\ShiftConfigInputManager.cs" />
      <Compile Include="Assets\Scripts\ShiftEdit\ShiftConfigUIManager.cs" />
      <Compile Include="Assets\Scripts\Singleton\ManagerRoot.cs" />

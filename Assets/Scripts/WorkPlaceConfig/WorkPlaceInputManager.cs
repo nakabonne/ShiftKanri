@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 //入力された値を一時的に管理するクラス
 public class WorkPlaceInputManager : MonoBehaviour {
@@ -36,10 +37,21 @@ public class WorkPlaceInputManager : MonoBehaviour {
 	//時給、給料日、締め日の配列
 	public int[] information = new int[4];
 
+	List<WorkPlace> workPlaces;
+
 
 	void Start()
 	{
-		//uiMana = uiManaObj.GetComponent<WorkPlaceConfigUIManager> ();
+		var workPlace = new WorkPlace()
+		{
+			name = "cue",
+			salary = 1000,
+			payDay = 20,
+			cutOffDay = 10,
+			paySystem = 0
+		};
+		workPlaces = new List<WorkPlace>(){workPlace};
+		Debug.Log (workPlaces[0]);
 	}
 	//保存済みの値をデフォルトでセットする（保存済みデータの編集時のみ）
 	public void Set(string name)
@@ -99,12 +111,39 @@ public class WorkPlaceInputManager : MonoBehaviour {
 	public void Save()
 	{
 		Debug.Log("バイト先保存");
-
+	
 		salary = int.Parse (salaryString); //string型の給料をint型に
+		//---------バイト先オブジェクトの作成--------
+
+		Debug.Log ("インスタンス作成");
+		/*
+		if (PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces") != null)
+		{
+			workPlaces = PlayerPrefsUtility.LoadList<WorkPlace> ("workPlaces"); //バイト先リストの読み込み
+			Debug.Log("aaaaaaaaaaa");
+		}*/
+
+
+		Debug.Log("読み込み");
+		Debug.Log (workPlaces);
+		workPlaces.Add (new WorkPlace {
+			name = workPlaceName,
+			salary = salary,
+			payDay = payDay,
+			cutOffDay = cutOffDate,
+			paySystem = paySystem
+		});//バイト先の追加
+		Debug.Log(workPlaces[1].name);
+		PlayerPrefsUtility.SaveList<WorkPlace> ("workPlaces", workPlaces); //新たにバイト先情報を上書きする
+		Debug.Log("セーブ");
+		Debug.Log("保存されたバイト先は" + workPlaces);
+
+
+
+
 		information = new int []{salary,payDay,cutOffDate,paySystem}; //給料、給料日、締め日、給与体系を配列に
 		PlayerPrefsX.SetIntArray (workPlaceName, information); //バイト先名をキーにして各情報を保存
 		inputForm.SetActive(false);
-
 		WorkPlaceManager.Instance.SaveNames (workPlaceName); //バイト先名をリストに追加
 		MySceneManager.Instance.GoWorkConfig();//新たにボタンを追加するためにシーンを更新する
 	}

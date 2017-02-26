@@ -19,7 +19,9 @@ public static class PlayerPrefsUtility {
 	/// リストを保存
 	/// </summary>
 	public static void SaveList<T>(string key , List<T> value){
+		Debug.Log ("valueは" + value);
 		string serizlizedList = Serialize<List<T>> (value);
+		Debug.Log ("シリアライズ完了");
 		PlayerPrefs.SetString (key, serizlizedList);
 	}
 
@@ -66,9 +68,13 @@ public static class PlayerPrefsUtility {
 	//=================================================================================
 
 	private static string Serialize<T> (T obj){
+		Debug.Log ("aaaa");
 		BinaryFormatter binaryFormatter = new BinaryFormatter ();
+		Debug.Log ("bbb");
 		MemoryStream    memoryStream    = new MemoryStream ();
+		Debug.Log ("ccc");
 		binaryFormatter.Serialize (memoryStream , obj);
+		Debug.Log ("ddd");
 		return Convert.ToBase64String (memoryStream   .GetBuffer ());
 	}
 
